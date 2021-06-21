@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Time to Use React
+          Time to Use React!!
         </a>
       </header>
     </div>
