@@ -6,13 +6,16 @@ import { sampleData } from '../../../app/api/sampleData';
 
 export default function EventDashboard(){
     const [events, setEvents] = useState(sampleData);
+    const [formOpen, setFormOpen] = useState(false);
+
     return(
         <Grid>
             <Grid.Column width={10}>
                 <EventList events={events} />
             </Grid.Column>
             <Grid.Column width={6}>
-            <EventForm />
+                {formOpen && 
+            <EventForm /> }
             </Grid.Column>
             
         </Grid>
