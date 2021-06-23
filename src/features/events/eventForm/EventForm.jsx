@@ -1,16 +1,16 @@
 import React from 'react';
-import { Header, Segment, Form } from 'semantic-ui-react';
+import { Header, Segment, Form, Button } from 'semantic-ui-react';
 
 export default function EventForm() {
     return (
-        <Segment>
+        <Segment clearing>
             <Header content='Create a new event' />
             <Form>
                 <Form.Field>
                     <input type='text' placeholder='Event title' />
                 </Form.Field>
                 <Form.Field>
-                    <input type='text' placeholder='Date' />
+                    <input type='date' placeholder='Date' />
                 </Form.Field>
                 <Form.Field>
                     <input type='text' placeholder='Category' />
@@ -24,6 +24,8 @@ export default function EventForm() {
                 <Form.Field>
                     <input type='text' placeholder='Location' />
                 </Form.Field>
+                <Button type='submit' floated='right' positive content='Submit' />
+                <Button type='submit' floated='right' content='Cancel' />
             </Form>
         </Segment>
     )
