@@ -10,3 +10,7 @@ body {
      rgb(52, 111, 158) 89%
   );
 }
+
+.ui.main.container {
+  margin-top: 7em;
+}
