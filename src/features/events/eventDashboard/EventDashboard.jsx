@@ -4,9 +4,9 @@ import EventForm from '../eventForm/EventForm';
 import EventList from './EventList';
 import { sampleData } from '../../../app/api/sampleData';
 
-export default function EventDashboard(){
+export default function EventDashboard({formOpen}){
     const [events, setEvents] = useState(sampleData);
-    const [formOpen, setFormOpen] = useState(false);
+  
 
     return(
         <Grid>
