@@ -1,10 +1,11 @@
 import React from 'react';
 import EventDashboard from '../../features/events/eventDashboard/EventDashboard';
+import NavBar from '../../features/nav/NavBar';
 
 export default function App() {
   return (
    <div> 
-      <h1>SocialEvent</h1>
+      <NavBar />
       <EventDashboard />
 
     </div>
