@@ -9,7 +9,7 @@ export default function App() {
    <> 
       <NavBar setFormOpen={setFormOpen}/>
       <Container className='main'>
-        <EventDashboard formOpen={formOpen}/> 
+        <EventDashboard formOpen={formOpen} setFormOpen={setFormOpen}/> 
       </Container>
       
 
