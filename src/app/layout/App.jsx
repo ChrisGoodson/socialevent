@@ -1,15 +1,12 @@
 import React from 'react';
+import EventDashboard from '../../features/events/eventDashboard/EventDashboard';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+   <div> 
       <h1>SocialEvent</h1>
+      <EventDashboard />
 
-      <button className='ui icon red button'>
-      <i className='user icon' /> Test Button
-      </button>
     </div>
   );
 }
-
-export default App;
