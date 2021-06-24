@@ -6,7 +6,7 @@ export default function NavBar({setFormOpen}) {
     return (
         <Menu inverted fixed='top'>
             <Container>
-                <Menu.Item as={NavLink} to= '/' header>
+                <Menu.Item as={NavLink} exact to= '/' header>
                     <img src='/assets/logo.png' alt='logo' style={{marginRight: 21}}/> 
                         SocialEvents
                 </Menu.Item>
