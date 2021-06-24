@@ -26,7 +26,7 @@ export default function EventForm({setFormOpen, setEvents, createEvent, selected
     
     function handleInputChange(e) {
         const {name, value} = e.target;
-        setValues({...values, [name]: value}) //changed to spread opperator for efficiancy
+        setValues({...values, [name]: value})
     }
 
     return (
