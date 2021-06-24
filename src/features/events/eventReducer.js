@@ -5,8 +5,8 @@ const initialState = {
     events: sampleData
 }
 
-export default function eventReducer(state = initialState, {type, payload}){
-    switch (type){
+export default function eventReducer(state = initialState, {type, payload}) {
+    switch (type) {
         case CREATE_EVENT:
             return {
                 ...state,
@@ -15,12 +15,12 @@ export default function eventReducer(state = initialState, {type, payload}){
             case UPDATE_EVENT:
                 return {
                     ...state,
-                    events: [...state.events.filter(e => e.id !== payload.id, payload)]
+                    events: [...state.events.filter(e => e.id !== payload.id), payload]
                 }
                 case DELETE_EVENT:
                     return {
                         ...state,
-                        events: [...state.events.filter(e => e.id !== payload.id, payload)]
+                        events: [...state.events.filter(e => e.id !== payload)]
                     };
                     default:
                         return state;
