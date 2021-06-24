@@ -27,7 +27,7 @@ export default function App() {
       <NavBar setFormOpen={handleCreateFormOpen}/>
       <Container className='main'>
         <Route exact path='/' component={HomePage} />
-        <Route path='/events' component={EventDashboard} />
+        <Route exact path='/events' component={EventDashboard} />
         <Route path='/events/:id' component={EventDetailedPage} />
         <Route path='/createEvent' component={EventForm} />
       </Container>
