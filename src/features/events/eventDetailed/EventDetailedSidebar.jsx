@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment, Item } from 'semantic-ui-react';
 
-export default function EventDetailedSidebar() {
+export default function EventDetailedSidebar({attendees}) {
     return (
         
 <>
@@ -13,7 +13,7 @@ export default function EventDetailedSidebar() {
     inverted
     color="teal"
 >
-    2 People Going
+    {attendees.length} {attendees.length > 1 ? 'People' : 'Person'} Going
 </Segment>
 <Segment attached>
     <Item.Group relaxed divided>
