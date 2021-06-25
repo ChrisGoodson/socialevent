@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { Header, Segment, Form, Button } from 'semantic-ui-react';
 import cuid from 'cuid';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-export default function EventForm({setFormOpen, setEvents, createEvent, selectedEvent, updateEvent }) {
+export default function EventForm({
+    setFormOpen, 
+    setEvents, 
+    createEvent,  
+    updateEvent,
+    match
+ }) {
+    const selectedEvent = useSelector(state => state.event.events.find( e => e.id === match.params.id));
+
     const initialValues = selectedEvent ?? {
         title: '',
         category:'',
@@ -12,6 +21,9 @@ export default function EventForm({setFormOpen, setEvents, createEvent, selected
         venue: '',
         date: ''
     }
+
+
+
     const [values, setValues] = useState(initialValues);
     
     function handleFormSubmit() {
