@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {createEvent, updateEvent} from '../eventActions';
 
 
-export default function EventForm({match}) {
+export default function EventForm({match, history}) {
     const dispatch = useDispatch();
 
     const selectedEvent = useSelector(state => state.event.events.find( e => e.id === match.params.id));
@@ -33,6 +33,7 @@ export default function EventForm({match}) {
             attendees: [],
             hostPhotoURL: '/assets/user.png'
         }));
+        history.push('/events');
     }
     
     function handleInputChange(e) {
