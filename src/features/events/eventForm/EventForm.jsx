@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Header, Segment, Form, Button } from 'semantic-ui-react';
+import { Header, Segment, Button, FormField } from 'semantic-ui-react';
 import cuid from 'cuid';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import {createEvent, updateEvent} from '../eventActions';
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 
 export default function EventForm({match, history}) {
@@ -20,8 +20,6 @@ export default function EventForm({match, history}) {
         venue: '',
         date: ''
     }
-
-
 
     const [values, setValues] = useState(initialValues);
     
@@ -44,62 +42,41 @@ export default function EventForm({match, history}) {
 
     return (
         <Segment clearing>
-            <Formik
-            initalValues={initialValues}
-            onSubmit={values => console.log(values)}
-            >
             <Header content={selectedEvent ? 'Edit the event' : 'Create a new event'} />
-            <Form onSubmit ={handleFormSubmit}>
-                <Form.Field>
-                    <input type='text'
-                    placeholder='Event title' 
-                    name='title'
-                    value={values.title} 
-                    onChange={(e) => handleInputChange(e)} />
-                </Form.Field>
-                <Form.Field>
-                    <input type='date'
-                    placeholder='Date' 
-                    name='date'
-                    value={values.date} 
-                    onChange={(e) => handleInputChange(e)}/>
-                </Form.Field>
-                <Form.Field>
-                    <input type='text'
-                     placeholder='Category' 
-                     name='category'
-                    value={values.category} 
-                    onChange={(e) => handleInputChange(e)}/>
-                </Form.Field>
-                <Form.Field>
-                    <input type='text'
-                    placeholder='Description' 
-                    name='description'
-                    value={values.description} 
-                    onChange={(e) => handleInputChange(e)}/>
-                </Form.Field>
-                <Form.Field>
-                    <input type='text' 
-                    placeholder='City' 
-                    name='city'
-                    value={values.city} 
-                    onChange={(e) => handleInputChange(e)}/>
-                </Form.Field>
-                <Form.Field>
-                    <input type='text' 
-                    placeholder='Venue' 
-                    name='venue'
-                    value={values.venue} 
-                    onChange={(e) => handleInputChange(e)}/>
-                </Form.Field>
+            <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => console.log(values)}
+            >
+                <Form className='ui form'>
+                    <FormField>
+                        <Field name='title' placeholder='Event title' />
+                    </FormField>
+                    <FormField>
+                        <Field name='category' placeholder='Category'/>
+                    </FormField>
+                    <FormField>
+                        <Field name='description' placeholder='Description'/>
+                    </FormField>
+                    <FormField>
+                        <Field name='city' placeholder='City'/>
+                    </FormField>
+                    <FormField>
+                        <Field name='venue' placeholder='Venue'/>
+                    </FormField>
+                    <FormField>
+                        <Field name='date' placeholder='Event Date' type='date' />
+                    </FormField>
+                   
                 <Button type='submit' floated='right' positive content='Submit' />
                 <Button 
-                as={Link} to='/events'
+                as={Link}
+                to='/events'
                 type='submit' 
                 floated='right' 
-                content='Cancel' />
+                content='Cancel' 
+            />
             </Form>
             </Formik>
         </Segment>
-    )
+    );
 }
