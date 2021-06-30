@@ -4,6 +4,7 @@ import cuid from 'cuid';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import {createEvent, updateEvent} from '../eventActions';
+import { Formik } from 'formik';
 
 
 export default function EventForm({match, history}) {
@@ -43,6 +44,10 @@ export default function EventForm({match, history}) {
 
     return (
         <Segment clearing>
+            <Formik
+            initalValues={initialValues}
+            onSubmit={values => console.log(values)}
+            >
             <Header content={selectedEvent ? 'Edit the event' : 'Create a new event'} />
             <Form onSubmit ={handleFormSubmit}>
                 <Form.Field>
@@ -94,6 +99,7 @@ export default function EventForm({match, history}) {
                 floated='right' 
                 content='Cancel' />
             </Form>
+            </Formik>
         </Segment>
     )
 }
