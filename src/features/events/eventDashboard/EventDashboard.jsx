@@ -11,8 +11,7 @@ export default function EventDashboard(){
         <Grid>
             <Grid.Column width={10}>
                 <EventList 
-                events={events} 
-                />
+                events={events} />
             </Grid.Column>
             <Grid.Column width={6}>
                 <h2>event filters</h2>
